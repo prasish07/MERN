@@ -22,9 +22,9 @@ cloudinary.config({
 });
 
 //Swagger
-const swaggerUI = require("swagger-ui-express");
-const YAML = require("yamljs");
-const swaggerDocument = YAML.load("./swagger.yaml");
+// const swaggerUI = require("swagger-ui-express");
+// const YAML = require("yamljs");
+// const swaggerDocument = YAML.load("./swagger.yaml");
 
 const rateLimiter = require("express-rate-limit");
 const helmet = require("helmet");
@@ -63,11 +63,11 @@ app.use(cookieParser(process.env.JWT_SECRET));
 // app.use(express.static("./Public"));
 app.use(fileUpload({ useTempFiles: true }));
 
-app.get("/", (req, res) => {
-  res.send("<h1>E-commerece API</h1><a href='/api-docs'>Documentation</a>");
-});
+// app.get("/", (req, res) => {
+//   res.send("<h1>E-commerece API</h1><a href='/api-docs'>Documentation</a>");
+// });
 
-app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+// app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 // routes
 app.use("/api/v1/auth", authrouter);
