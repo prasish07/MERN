@@ -14,6 +14,7 @@ const reviewRoute = require("./routes/reviewRoutes");
 const orderRoute = require("./routes/orderRoutes");
 const mailRoute = require("./routes/mailRoutes");
 const cloudinary = require("cloudinary").v2;
+const path = require("path");
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
   api_key: process.env.CLOUD_API_KEY,
