@@ -38,6 +38,11 @@ const port = process.env.PORT || 5000;
 const notFoundMiddleware = require("./middleware/not-found");
 const errorMiddleware = require("./middleware/error-handler");
 
+app.use(express.static(path.join(__dirname, "./Client/build")));
+
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./Client/build/index.html"));
+});
 app.set("trust proxy", 1);
 app.use(
   rateLimiter({
@@ -80,12 +85,6 @@ app.use("/api/v1/", mailRoute);
 // middleware
 app.use(notFoundMiddleware);
 app.use(errorMiddleware);
-
-app.use(express.static(path.join(__dirname, "./Client/build")));
-
-app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./Client/build/index.html"));
-});
 
 // listen
 const start = async () => {
