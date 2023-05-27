@@ -60,7 +60,7 @@ app.use(mongoSenitize());
 
 app.use(express.json());
 app.use(cookieParser(process.env.JWT_SECRET));
-app.use(express.static("./Public"));
+// app.use(express.static("./Public"));
 app.use(fileUpload({ useTempFiles: true }));
 
 app.get("/", (req, res) => {
