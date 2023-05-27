@@ -82,9 +82,8 @@ app.use(notFoundMiddleware);
 app.use(errorMiddleware);
 
 app.use(express.static(path.join(__dirname, "./Client/build")));
-console.log(__dirname, "./Client/build");
 
-app.get("*", (req, res) => {
+app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./Client/build/index.html"));
 });
 
